@@ -3,7 +3,7 @@ import streamlit as st
 
 
 client = None
-api_key = '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'
+api_key = 'your api_key'
 if api_key:
     client = OpenAI(api_key=api_key)
 
