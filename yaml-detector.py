@@ -1,3 +1,5 @@
+#작성자:김재현
+#오픈소스
 from openai import OpenAI
 import streamlit as st
 
