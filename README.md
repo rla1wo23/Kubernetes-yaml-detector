@@ -5,7 +5,7 @@ Cloudwave 2기 수업 멤버들을 위해 만든 yaml문법 검사기 streamlit 
 
 ## 시작하기
 
-```console
+```sh
 pip install -r requirements.txt
 streamlit run yaml-detector.py
 ```
