@@ -2,6 +2,7 @@
 # 오픈소스
 import streamlit as st
 from yamlfix import fix_code
+from ruyaml import scanner
 
 
 def main():
@@ -28,7 +29,7 @@ def main():
             "From text area",
             height=TEXT_AREA_HEIGHT,
             placeholder="포맷팅 할 YAML 텍스트를 입력하세요.",
-            label_visibility="collapsed"
+            label_visibility="collapsed",
         )
 
     with col2:
@@ -36,8 +37,14 @@ def main():
 
     with col3:
         result = "Waiting for input..."
-        if q or btn:
-            result = fix_code(q)
+        if q and btn:
+            try:
+                result = fix_code(q)
+            except scanner.ScannerError as err:
+                result = f"""\
+입력이 올바르지 않습니다. 다음 에러를 참조하세요:
+{err}\
+                """
             print(f"Result: {result}")
         st.markdown("### To:")
         st.code(result, language="YAML")
